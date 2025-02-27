@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('session_records', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('user_id')->constrained();
             $table->timestamp('login_at')->nullable(); // For some reason it's automatically on update CURRENT_TIMESTAMP without this, so just leave it be lol
             $table->timestamp('logout_at')->nullable();
         });

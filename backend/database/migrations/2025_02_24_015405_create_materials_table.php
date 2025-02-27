@@ -13,14 +13,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materials', function (Blueprint $table) {
-            $table->id();
+            $table->ulid('id')->primary();
             $table->string('title');
             $table->string('description');
             $table->string('file_path');
             $table->boolean('must_be_reviewed');
             $table->foreignIdFor(Material::class, 'preceeding_material_id')->nullable();
-            $table->foreignId('classroom_id')->constrained();
-            $table->foreignId('teacher_id')->constrained();
+            $table->foreignUlid('classroom_id')->constrained();
+            $table->foreignUlid('teacher_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

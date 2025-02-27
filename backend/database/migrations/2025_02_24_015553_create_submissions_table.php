@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('submissions', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('student_id')->constrained();
-            $table->foreignId('material_id')->constrained();
+            $table->ulid('id')->primary();
+            $table->foreignUlid('student_id')->constrained();
+            $table->foreignUlid('material_id')->constrained();
             $table->text('review')->nullable();
             $table->timestamp('reviewed_at')->nullable();
             $table->tinyInteger('grade')->unsigned()->nullable();
