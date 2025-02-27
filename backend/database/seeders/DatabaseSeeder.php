@@ -15,32 +15,32 @@ class DatabaseSeeder extends Seeder
 {
     private $subjects = [
         // Agama
-        'islam',
-        'kristen',
-        'katolik',
-        'hindu',
-        'konghucu',
-        'buddha',
+        'Islam',
+        'Kristen',
+        'Katolik',
+        'Hindu',
+        'Konghucu',
+        'Buddha',
 
         // Umum
-        'ppkn',
-        'bahasa_indonesia',
-        'bahasa_daerah',
-        'pjok',
-        'sejarah',
-        'seni',
-        'bahasa_inggris',
-        'matematika',
+        'PPKN',
+        'Bahasa Indonesia',
+        'Bahasa Daerah',
+        'PJOK',
+        'Sejarah',
+        'Seni',
+        'Bahasa Inggris',
+        'Matemarika',
 
         // Vokasi
-        'tg',
-        'tkj',
-        'rpl',
-        'animasi',
-        'dkv',
-        'logistik',
-        'mekatronika',
-        'perhotelan',
+        'Teknik Grafika',
+        'Teknik Komputer Jaringan',
+        'Rekayasa Perangkat Lunak',
+        'Animasi',
+        'Desain Komunikasi Visual',
+        'Teknik Logistik',
+        'Mekatronika',
+        'Perhotelan',
     ];
 
     private function seedUser(string $type, int $iteration = 1) {
