@@ -1,0 +1,14 @@
+- Admin
+Bisa CRUD semuanya
+
+- Koordinator
+CRUD Classroom, Guru
+Hanya bisa CRUD di bidang masing"
+
+- Guru Mapel
+CRUD Siswa, Material
+Bisa memberi nilai pada pengumpulan siswa
+Bisa memberi feedback pada pengumpulan siswa
+
+- Siswa
+Bisa mengumpulkan tugas
