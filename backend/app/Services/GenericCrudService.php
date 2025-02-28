@@ -20,9 +20,9 @@ class GenericCrudService
      * @param int $size
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function index(int $page = null, int $size = null)
+    public function index(int $page = null, int $size = null, array|string $relations = [])
     {
-        $models = $this->model->paginate(
+        $models = $this->model->with($relations)->paginate(
             $size,
             ['*'],
             'page',
@@ -51,9 +51,9 @@ class GenericCrudService
      * @param string $id
      * @return Model
      */
-    public function show(string $id)
+    public function show(string $id, array|string $relations = [])
     {
-        return $this->model->findOrFail($id);
+        return $this->model->with($relations)->findOrFail($id);
     }
 
     /**

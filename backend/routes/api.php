@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Gatekeeper;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ Route::group([
     ], function() {
 
         Route::apiResource('user', UserController::class);
+        Route::apiResource('classroom', ClassroomController::class);
 
     });
 
