@@ -27,6 +27,12 @@ class ClassroomController extends Controller
     private function storePhoto(UploadedFile $originalPhoto)
     {
 
+        validator([
+            'photo' => $originalPhoto
+        ], [
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120'
+        ])->validate();
+
         $photo = ImageManager::gd()
             ->read($originalPhoto->getRealPath())
             ->resize(800, 600)
