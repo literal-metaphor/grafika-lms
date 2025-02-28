@@ -43,7 +43,7 @@ class AuthController extends Controller
         return response([
             'message' => 'Login berhasil',
             'token' => $token,
-            'user' => $user
+            // 'user' => $user
         ]);
     }
 

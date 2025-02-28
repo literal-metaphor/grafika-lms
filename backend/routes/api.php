@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClassroomController;
+use App\Http\Controllers\ClassroomMemberController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\AdminGate;
+use App\Http\Middleware\Gatekeeper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,11 +29,27 @@ Route::group([
 
     // User CRUD endpoints (admin only)
     Route::group([
-        'middleware' => ['auth:sanctum', AdminGate::class]
+        'middleware' => ['auth:sanctum', Gatekeeper::class . ':admin']
     ], function() {
 
-        Route::apiResource('user', UserController::class);
+        Route::apiResource('users', UserController::class);
 
     });
+    
+    // Classroom CRUD endpoints (admin and coordinator only)
+    Route::group([
+        'middleware' => ['auth:sanctum', Gatekeeper::class . ':admin|coordinator']
+    ], function() {
+
+        Route::apiResource('classrooms', ClassroomController::class);
+        Route::apiResource('classrooms.users', ClassroomMemberController::class)->only([
+            'index',
+            'store',
+            'destroy'
+        ]);
+
+    });
+    
+    // TODO: Material CRUD
 
 });

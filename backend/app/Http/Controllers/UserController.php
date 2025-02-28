@@ -69,7 +69,6 @@ class UserController extends Controller
         ]);
 
         // Create the user actor
-        // TODO: Use UserSchemaResolver::callbackOnUserActor() instead
         switch ($data['role']) {
             case 'student':
                 Student::create([
